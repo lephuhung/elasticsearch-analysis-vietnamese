@@ -19,7 +19,7 @@ services:
       ELASTIC_PASSWORD: changemenow
       bootstrap.memory_lock: "true"
       discovery.type: single-node
-      xpack.security.enabled: true
+      xpack.security.enabled: "true"
     networks:
       - elastic
 

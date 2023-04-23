@@ -1,4 +1,4 @@
-ARG ES_VERSION=8.3.3
+ARG ES_VERSION=8.7.0
 ARG DEBIAN_FRONTEND=noninteractive
 
 # thanks to https://github.com/cpfriend1721994/docker-es-cococ-tokenizer
@@ -44,5 +44,5 @@ COPY --from=builder /coccoc-tokenizer/build/libcoccoc_tokenizer_jni.so /usr/lib
 COPY --from=builder /coccoc-tokenizer/build/multiterm_trie.dump /usr/local/share/tokenizer/dicts
 COPY --from=builder /coccoc-tokenizer/build/nontone_pair_freq_map.dump /usr/local/share/tokenizer/dicts
 COPY --from=builder /coccoc-tokenizer/build/syllable_trie.dump /usr/local/share/tokenizer/dicts
-COPY --from=builder /elasticsearch-analysis-vietnamese/target/releases/elasticsearch-analysis-vietnamese-$ES_VERSION.zip /
-RUN echo "Y" | /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch file:///elasticsearch-analysis-vietnamese-$ES_VERSION.zip
+COPY --from=builder /elasticsearch-analysis-vietnamese/target/releases/elasticsearch-analysis-vietnamese-8.7.0.zip /
+RUN echo "Y" | /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch file:///elasticsearch-analysis-vietnamese-8.7.0.zip
